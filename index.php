@@ -7,7 +7,7 @@
 include_once 'scheme.class.php';
 
 // set up an array with cities
-$cities = array('Cairo','Groningen','Perth','Kuala Lumpur','Los Angeles','Caracas','Fairbanks','Madrid', 'Johannesburg', 'Dakar', 'Osaka', 'Manila', 'Frankfurt','Belfast', 'La Habana', 'Djakarta','Kathmandu', 'Poznan','Chengdu','Paramaribo', 'Vladivostok', 'Mombasa', 'Suva','Ushuaia');
+$cities = array('Cairo','Amsterdam','Perth','Kuala Lumpur','Los Angeles','Caracas','Fairbanks','Madrid', 'Johannesburg', 'Dakar', 'Osaka', 'Manila', 'Frankfurt','Belfast', 'La Habana', 'Djakarta','Kathmandu', 'Poznan','Chengdu','Paramaribo', 'Vladivostok', 'Mombasa', 'Suva','Ushuaia');
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
