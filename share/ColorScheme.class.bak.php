@@ -1,15 +1,15 @@
 <?php
 /**
 * Color scheme class for making internet-based color schemes.
-* On supplying a Openweathermap.org a valid city ID this class will return a
+* On supplying a Google Maps valid city name this class will return a
 * Hex-color value of form #ff00ff when calling the $colorcode property.
 * The colorcode is based on the local forecast temperatures for three days
-* and need to be supplied in Celcius
+* and need to be supplied in Fahrenheit
 * 
 * @package ColorScheme
 * @author Vincent Bruijn <vebruijn@gmail.com>
-* @copyright (c) Vincent Bruijn 2012
-* @version 2.0 September 9 2012
+* @copyright (c) Vincent Bruijn 2008
+* @version 1.0 October 10 2008
 * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU Public License
 */
 class ColorScheme
@@ -27,10 +27,10 @@ class ColorScheme
 	public $city;
 	
 	/**
-	 * The URL to the weather API
+	 * The URL to the Google weather API
 	 * @var string
 	 */
-	private $url = "http://openweathermap.org/data/2.0/forecast/city/";
+	private $url = "http://www.google.com/ig/api?weather=";
 
 	/**
 	 * The constructor needs a name of a city.
@@ -50,24 +50,24 @@ class ColorScheme
 	*/
 	protected function getTempBasedString($city, $country = null)
 	{
-		$jsonstr = @file_get_contents ($this->url . urlencode($city));
+		$xmlstr = @file_get_contents ($this->url . urlencode($city));
 		
-		if ($jsonstr === false) {
-			return '808080'; // 50% gray
+		if ($xmlstr === false) {
+			return '7f7f7f'; // 50% gray
 		}
 
-		$data = json_decode($jsonstr, true);
-		if ($data['cod'] !== '200') {
-			return '808080';
-		}
+		$dom = new DomDocument();
+		$dom->loadXML($xmlstr);
 
+		$low = $dom->getElementsByTagName('low');
+		$high = $dom->getElementsByTagName('high');
 		$hex = '';
 
-		for ($x = 0; $x < 3; $x++)
+		for ($x = 0; $x < $low->length; $x++)
 		{
-			$value_low = $data['list'][$x]['main']['temp_min'] - 273;
-			$value_high = $data['list'][$x]['main']['temp_max'] - 273;
-			$value = abs(($value_low + $value_high) / 2);
+			$value_low = $low->item($x)->getAttributenode('data')->value;
+			$value_high = $high->item($x)->getAttributenode('data')->value;
+			$value = ($value_low + $value_high) / 2;
 			$value = $this->calculateHex($value);
 			if ($value < 16) {
 				$hex .= "0" . dechex($value);
@@ -77,7 +77,7 @@ class ColorScheme
 		}
 		
 		if (strlen ($hex) == 0) {
-			return '808080';
+			return '7f7f7f';
 		} else {
 			$return = substr ($hex,0,6);
 			return $return;
@@ -92,10 +92,10 @@ class ColorScheme
 	 * @param int $fahrenheit The temperature in degrees F
 	 * @return int $dec A decimal between 0 and 255
 	 */
-	private function calculateHex($celcius)
+	private function calculateHex($fahrenheit)
 	{
 		// -128 - 136 min and max temperature from earth in fahrenheit
-		$dec = round((255 / 147) * $celcius, 0) + 124;
+		$dec = round((255 / 264) * $fahrenheit, 0) + 124;
 		return $dec;
 	}
 }

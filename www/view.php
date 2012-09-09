@@ -7,7 +7,32 @@
 include_once '../share/ColorScheme.class.php';
 
 // set up an array with cities
-$cities = array('Cairo','Amsterdam','Perth','Kuala Lumpur','Los Angeles','Caracas','Fairbanks','Madrid', 'Johannesburg', 'Dakar', 'Osaka', 'Manila', 'Frankfurt','Belfast', 'La Habana', 'Djakarta','Kathmandu', 'Poznan','Chengdu','Paramaribo', 'Vladivostok', 'Mombasa', 'Suva','Ushuaia','Melbourne','Honolulu');
+$cities = array(
+	'Cairo' => '360630',
+	'Amsterdam' => '2759794',
+	'Perth' => '2063523',
+	'Kuala Lumpur' => '1735161',
+	'Los Angeles' => '3882428',
+	'Caracas' => '3646738',
+	'Fairbanks' => '5861897',
+	'Madrid' => '3675707',
+	'Johannesburg' => '993800',
+	'Dakar' => '2253354',
+	'Osaka' => '1850892',
+	'Manila' => '1701668',
+	'Frankfurt' => '2925533',
+	'Belfast' => '2655984',
+	'La Habana' => '3553478',
+	'Djakarta' => '1642911',
+	'Kathmandu' => '1283240',
+	'Poznan' => '3088171',
+	'Chengdu' => '1815286',
+	'Paramaribo' => '3383330',
+	'Vladivostok' => '2013348',
+	'Mombasa' => '186301',
+	'Suva' => '2198148',
+	'Ushuaia' => '3833367'
+);
 
 ?>
 <!DOCTYPE html>
@@ -57,14 +82,14 @@ div.palette {
 
 <body>
 	<div class="palette">
-	<?php foreach ($cities as $city): ?>
-		<?php $color = new ColorScheme($city); ?>
+	<?php foreach ($cities as $city => $id): ?>
+		<?php $color = new ColorScheme($id); ?>
 		<div class="scheme" style="background: <?php echo $color->colorcode ?>" title="<?php echo $color->colorcode ?>">
-			<?php echo $color->city ?>
+			<?php echo $city; ob_flush(); flush(); ?>
 		</div>
 	<?php endforeach; ?>
 	<div id="caption">
-		Colors created by transforming three day temerature forecast from Google. As a reference, the earth's maximum temperature ever measured is white (57.8 &deg;C in Libya), the lowest (-89.2 &deg;C in Antarctica) is black. Colors change as weather changes.
+		Colors created by transforming three day temerature forecast from openweathermap.org. As a reference, the earth's maximum temperature ever measured is white (57.8 &deg;C in Libya), the lowest (-89.2 &deg;C in Antarctica) is black. Colors change as weather changes.
 	</div>
 
 	<br style="clear:both;">
