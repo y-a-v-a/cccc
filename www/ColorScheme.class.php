@@ -50,7 +50,16 @@ class ColorScheme
 	*/
 	protected function getTempBasedString($city, $country = null)
 	{
-		$jsonstr = @file_get_contents ($this->url . urlencode($city));
+		$cache_name = 'cache/' . $city . '-' . date('Y-m-d') . '.json';
+		$jsonstr = false;
+		
+		if (file_exists($cache_name)) {
+			$jsonstr = @file_get_contents($cache_name);
+		} else {
+			array_map('unlink', glob('cache/' . $city . '*'));
+			$jsonstr = @file_get_contents ($this->url . urlencode($city));
+			@file_put_contents($cache_name, $jsonstr);
+		}
 		
 		if ($jsonstr === false) {
 			return '808080'; // 50% gray
