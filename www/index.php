@@ -4,7 +4,7 @@
  */
 
 // get the class
-include_once '../share/ColorScheme.class.php';
+include_once './ColorScheme.class.php';
 
 // set up an array with cities
 $cities = array(
