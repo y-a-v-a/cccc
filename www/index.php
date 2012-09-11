@@ -8,36 +8,13 @@ include 'conf.inc.php';
 
 <html lang="en">
 <head>
+	<title>y-a-v-a.org | World Colors</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-
-	<title>color palette</title>
-<style>
-body {
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	font-family: Monaco, Courier;
-	font-size: 10pt;
-	letter-spacing: 0.05em;
-}
-div.scheme {
-	width: 114px;
-	height: 114px;
-	float: left;
-	margin: 12px 0 0 12px;
-	text-align: center;
-	line-height: 114px;
-	color: #fff;
-}
-div.palette {
-	width: 1024px;
-	height: 600px;
-	border: 2px solid rgb(192,192,192);
-	margin: 24px auto 0;
-}
-</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="style.css" media="all">
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 
 <body>

@@ -8,10 +8,12 @@ include 'conf.inc.php';
 
 <html lang="en">
 <head>
+	<title>y-a-v-a.org | World Colors</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-
-	<title>y-a-v-a.org - world colors</title>
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 body {
 	padding: 0;
@@ -24,7 +26,7 @@ div.scheme {
 	width: 114px;
 	height: 114px;
 	float: left;
-	margin: 12px 0 0 12px;
+	margin: 11px 0 0 11px;
 	text-align: center;
 	line-height: 114px;
 	color: #fff;

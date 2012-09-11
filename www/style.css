@@ -1,0 +1,83 @@
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: Monaco, Courier;
+	font-size: 10pt;
+	letter-spacing: 0.05em;
+}
+div.scheme {
+	width: 114px;
+	height: 114px;
+	float: left;
+	margin: 12px 0 0 12px;
+	text-align: center;
+	line-height: 114px;
+	color: #fff;
+}
+div.palette {
+	width: 1024px;
+	height: 600px;
+	border: 2px solid rgb(192,192,192);
+	margin: 24px auto 0;
+}
+
+@media screen and (max-device-width: 320px){
+	body {
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		font-family: Monaco, Courier;
+		font-size: 12pt;
+		letter-spacing: 0.05em;
+	}
+	
+	div.scheme {
+		width: 136px;
+		height: 136px;
+		float: left;
+		margin: 16px 0 0 16px;
+		text-align: center;
+		line-height: 136px;
+		color: #fff;
+	}
+	
+	div.palette {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		border: none;
+	}
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+	body {
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		font-family: Monaco, Courier;
+		font-size: 10pt;
+		letter-spacing: 0.05em;
+	}
+	
+	div.scheme {
+		width: 118px;
+		height: 118px;
+		float: left;
+		margin: 8px 0 0 8px;
+		text-align: center;
+		line-height: 118px;
+		color: #fff;
+	}
+	
+	div.palette {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		border: none;
+	}
+}
+
