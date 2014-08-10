@@ -24,7 +24,7 @@ include 'conf.inc.php';
 		<p>This is a world color palette, based on local temperatures. The earth's maximum temperature ever measured is white (136 &deg;F, about 58 &deg;C in Libya, 1922), the lowest (-128 &deg;F, -89 &deg;C in Vostok Station, Antarctica, 1983) is black. Colors are based on a three days weather forecast from <a href="http://openweathermap.org/">openweathermap.org</a> which means these colors will change through time.</p>
 	</div>
 	<?php foreach ($cities as $city => $id): ?>
-		<?php $color = new ColorScheme($id); ?>
+		<?php $color = new ColorScheme($city . ',' . $id); ?>
 		<div class="scheme" style="background: <?php echo $color->colorcode ?>" title="<?php echo $color->colorcode ?>">
 			<?php echo $city; ob_flush(); flush(); ?>
 		</div>

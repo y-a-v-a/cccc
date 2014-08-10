@@ -48,6 +48,7 @@ div.palette {
 	font-size: 11px;
 	background: #7f7f7f;
 	color: #fff;
+    line-height: 1.3;
 }
 </style>
 </head>
@@ -55,7 +56,7 @@ div.palette {
 <body>
 	<div class="palette">
 	<?php foreach ($cities as $city => $id): ?>
-		<?php $color = new ColorScheme($id); ?>
+		<?php $color = new ColorScheme($city . ',' . $id); ?>
 		<div class="scheme" style="background: <?php echo $color->colorcode ?>" title="<?php echo $color->colorcode ?>">
 			<?php echo $city; ob_flush(); flush(); ?>
 		</div>

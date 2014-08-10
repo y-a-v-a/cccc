@@ -30,7 +30,7 @@ class ColorScheme
 	 * The URL to the weather API
 	 * @var string
 	 */
-	private $url = "http://openweathermap.org/data/2.0/forecast/city/";
+	private $url = "http://openweathermap.org/data/2.5/forecast/city?APPID=236d92f86276493752660e594a080961&q=";
 
 	/**
 	 * The constructor needs a name of a city.
