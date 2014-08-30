@@ -1,9 +1,11 @@
-city celsius color composition
-==============================
+city celsius color composition - cccc
+=====================================
 
 Also known as: Colorscheme project, color palette, colorsheme
 
-y-a-v-a 2008-2014
+See a working version here: [http://www.vincentbruijn.nl/colorpalette/](http://www.vincentbruijn.nl/colorpalette/)
+
+[y-a-v-a.org](http://www.y-a-v-a.org) 2008-2014
 
 * A class that contacts Open Weather Map for weather forecasts and turn temperatures into colors.
 * UPDATE 2012-09-09 : Google shut down API because of shutting down iGoogle. Switched to openweathermap.org API.
