@@ -1,9 +1,11 @@
 <?php
 date_default_timezone_set('Europe/Amsterdam');
 session_start();
-error_reporting(0);
-// get the class
+error_reporting(E_ALL);
+
 include_once 'ColorScheme.class.php';
+
+include_once 'appid.php';
 
 // set up an array with cities
 $cities = array(

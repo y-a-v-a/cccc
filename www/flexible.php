@@ -35,7 +35,7 @@ div.scheme {
 </head>
 
 <body>
-	<?php foreach ($cities as $city => $id): ?>
+	<?php ob_flush(); flush(); foreach ($cities as $city => $id): ?>
 		<?php $color = new ColorScheme($city. ',' . $id); ?>
 		<div class="scheme" style="background: <?php echo $color->colorcode ?>" title="<?php echo $color->colorcode ?>">
 			<?php echo $city; ob_flush(); flush(); ?>

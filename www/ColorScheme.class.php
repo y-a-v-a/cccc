@@ -4,11 +4,11 @@
 * On supplying a Openweathermap.org a valid city ID this class will return a
 * Hex-color value of form #ff00ff when calling the $colorcode property.
 * The colorcode is based on the local forecast temperatures for three days
-* and need to be supplied in Celcius
+* and need to be supplied in Celsius
 * 
 * @package ColorScheme
 * @author Vincent Bruijn <vebruijn@gmail.com>
-* @copyright (c) Vincent Bruijn 2012
+* @copyright (c) Vincent Bruijn 2008-2014
 * @version 2.0 September 9 2012
 * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU Public License
 */
@@ -30,7 +30,7 @@ class ColorScheme
 	 * The URL to the weather API
 	 * @var string
 	 */
-	private $url = "http://openweathermap.org/data/2.5/forecast/city?APPID=236d92f86276493752660e594a080961&q=";
+	private $url = "http://openweathermap.org/data/2.5/forecast/city?APPID=";
 
 	/**
 	 * The constructor needs a name of a city.
@@ -57,7 +57,7 @@ class ColorScheme
 			$jsonstr = @file_get_contents($cache_name);
 		} else {
 			array_map('unlink', glob('cache/' . $city . '*'));
-			$jsonstr = @file_get_contents ($this->url . urlencode($city));
+			$jsonstr = @file_get_contents ($this->url  . APP_ID . "&q=" . urlencode($city));
 			@file_put_contents($cache_name, $jsonstr);
 		}
 		
@@ -101,10 +101,10 @@ class ColorScheme
 	 * @param int $fahrenheit The temperature in degrees F
 	 * @return int $dec A decimal between 0 and 255
 	 */
-	private function calculateHex($celcius)
+	private function calculateHex($celsius)
 	{
 		// -128 - 136 min and max temperature from earth in fahrenheit
-		$dec = round((255 / 147) * $celcius, 0) + 124;
+		$dec = round((255 / 147) * $celsius, 0) + 124;
 		return $dec;
 	}
 }
