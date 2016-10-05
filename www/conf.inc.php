@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Europe/Amsterdam');
 session_start();
-error_reporting(E_ALL);
+error_reporting(0);
 
 include_once 'ColorScheme.class.php';
 
